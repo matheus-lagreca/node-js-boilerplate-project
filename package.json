@@ -1,0 +1,39 @@
+{
+  "name": "node-js-boilerplate-project",
+  "version": "1.0.0",
+  "description": "A boilerplate project made with nodejs, mysql(sequelize) and docker",
+  "main": "src/server.js",
+  "scripts": {
+    "sync": "babel-node src/config/syncDB.js ",
+    "dev": "NODE_ENV=dev nodemon --exec babel-node src/server.js",
+    "dev:docker": "ENV_DOCKER=true NODE_ENV=dev nodemon --exec babel-node src/server.js"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/node": "^7.17.10",
+    "@babel/plugin-transform-modules-commonjs": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^28.1.0",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.16",
+    "sequelize": "^6.20.1",
+    "sequelize-cli": "^6.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matheus-lagreca/node-js-boilerplate-project.git"
+  },
+  "author": "matheus-lagreca",
+  "license": "The MIT License (MIT)"
+}
