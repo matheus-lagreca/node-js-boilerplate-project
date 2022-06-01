@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  srv-api-bp:
+    container_name: srv-api-bp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "npm i && npm run dev:docker"
+    ports:
+      - "5000:5000"
+    expose:
+      - "5000"
+    volumes:
+      - .:/app/boilerplate
+    depends_on:
+      - srv-mysql-bp
+    networks:
+      - app-connect
+
+  srv-mysql-bp:
+    image: mysql:5.7
+    environment:
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+    networks:
+      - app-connect
+
+  adminer-soc:
+    image: adminer
+    ports: 
+      - 8080:8080
+    logging:
+      driver: none
+    networks:
+      - app-connect
+
+networks:
+  app-connect:
+    driver: bridge
