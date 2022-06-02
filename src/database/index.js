@@ -2,11 +2,11 @@ import Sequelize from "sequelize";
 import DatabaseConfig from "../config/database";
 
 // Models
-// import Model from "../app/model/Model";
+import ModelBase from "../app/model/ModelBase";
 
 // Buffer (add models here)
 const models = [
-  // Model
+  ModelBase
 ]
 
 
