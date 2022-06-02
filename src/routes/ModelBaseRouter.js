@@ -1,6 +1,7 @@
 import {
   getOneEntryById,
   getAllEntries,
+  getOneParamFromOneEntryById,
   getAllEntriesByParam,
   postOneEntry,
   patchOneEntryById,
@@ -8,10 +9,11 @@ import {
   deleteOneEntryByID,
   deleteOneEntryByParam,
   deleteAllEntriesByParam
-} from '../app/controller/ModelBaseController';
+} from '../app/controllers/ModelBaseController';
 const LoadRouters = (router) => {
   // Get
   router.get("/model/:id", getOneEntryById);
+  router.get("/model/:id", getOneParamFromOneEntryById);
   router.get("/model", getAllEntries);
   router.get("/model", getAllEntriesByParam);
 
