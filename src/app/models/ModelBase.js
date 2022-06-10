@@ -15,7 +15,7 @@ class ModelBase extends Model {
           type: Sequelize.STRING,
           allowNull: false
         },
-        connected: {
+        isConnected: {
           type: Sequelize.BOOLEAN,
           allowNull: false
         },
