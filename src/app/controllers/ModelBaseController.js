@@ -27,8 +27,32 @@ const getOneEntryById = async (req, res) => {
     });
 };
 
+const getAllEntries = async (req, res) => {
+  await ModelBase.findAll()
+    .then(async (models) => {
+      return res.json(models);
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+};
+
+const postOneEntry = async (req, res) => {
+  await ModelBase.create({
+    name: req.body.name,
+    isConnected: req.body.isConnected,
+  })
+    .then(async () => {
+      res.status(200).send({ message: "ok" })
+    })
+    .catch(() => {
+      res.status(400).send({ message: "Error while creating user" })
+    });
+}
 
 
 export {
   getOneEntryById,
+  getAllEntries,
+  postOneEntry
 };
